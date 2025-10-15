@@ -3,14 +3,15 @@ package lvt.oop;
 import java.util.Random;
 
 public class Velosipeds {
+	double ritenaD;
 	//Atributi
-	private int ritenaD, sedeklaPoz;
+	private double sedeklaPoz;
 	private Double atrumsMS, cena;
 	private String razotajs;
  	
 	
 	//Konstruktors
-	public Velosipeds(int ritenaD, int sedeklaPoz, double cena, String razotajs) {
+	public Velosipeds(double ritenaD, double sedeklaPoz, double cena, String razotajs) {
 		this.ritenaD = ritenaD;
 		this.sedeklaPoz = sedeklaPoz;
 		atrumsMS = kustibasAtr();
@@ -28,11 +29,11 @@ public class Velosipeds {
 	
 	
 	
-	public int getRitenaD() {
+	public double getRitenaD() {
 		return ritenaD;
 	}
 
-	public int getSedeklaPoz() {
+	public double getSedeklaPoz() {
 		return sedeklaPoz;
 	}
 	
