@@ -42,8 +42,10 @@ public class RitenBraucejs {
 							int iestatAtr = metodes.iestatitAtrumu();
 							JOptionPane.showMessageDialog(null, "Iestatītais ātrums: "+iestatAtr+"m/s","Ātruma iestatīšana",JOptionPane.INFORMATION_MESSAGE);
 							izvele = (String) JOptionPane.showInputDialog(null, "Vai ritenim ir pieejams amortizators?","Amortizatora pieejamība",JOptionPane.QUESTION_MESSAGE,null,atbilde,atbilde[0]);
+							
 						if(izvele == null)
 							break;
+						
 							izvelesID = Arrays.asList(atbilde).indexOf(izvele);
 							boolean atsperes = (izvelesID == 0) ? true : false;
 							riteni.add(new KalnuRitenis(iestatAtr,atsperes,(int)diametrs,sezPoz,cena,razotajs));
@@ -51,14 +53,18 @@ public class RitenBraucejs {
 						
 						}else if(izvelesID == 2) {
 							izvele = (String) JOptionPane.showInputDialog(null, "Vai ritenim ir pieejams palīgritenis?","Palīgriteņa pieejamība",JOptionPane.QUESTION_MESSAGE,null,atbilde,atbilde[0]);
+							
 							if(izvele == null)
 								break;
+							
 							izvelesID = Arrays.asList(atbilde).indexOf(izvele);
 							boolean paligriten = (izvelesID == 0) ? true : false;
 							
 							izvele = (String) JOptionPane.showInputDialog(null, "Vai ritenim ir pieejams zvaniņš?","Zvaniņa pieejamība",JOptionPane.QUESTION_MESSAGE,null,atbilde,atbilde[0]);
+							
 							if(izvele == null)
 								break;
+							
 							izvelesID = Arrays.asList(atbilde).indexOf(izvele);
 							boolean zvanins = (izvelesID == 0) ? true : false;
 							
@@ -66,9 +72,21 @@ public class RitenBraucejs {
 							JOptionPane.showMessageDialog(null, "Bērnu ritens veiksmigi pievienots","Jauns ritens",JOptionPane.INFORMATION_MESSAGE);
 						}
 						
+						break;
+						//Riteņa nonemšana
+					case 1:
+						if(riteni.size()> 0) {
+							int ritID = metodes.ritenaIzvele(riteni);
+							riteni.remove(ritID);
+							JOptionPane.showMessageDialog(null, "Ritenis tika dzēsts!", "Paziņojums", JOptionPane.INFORMATION_MESSAGE);
+							
+						}else {
+							JOptionPane.showMessageDialog(null, "Sarakstā nav neviens ritenis!", "Brīdinājums", JOptionPane.WARNING_MESSAGE);
+						}
 						
 						
 						break;
+						
 					case 5:
 						JOptionPane.showMessageDialog(null, "Programma apturēta","Beigas",JOptionPane.INFORMATION_MESSAGE);
 						break;
