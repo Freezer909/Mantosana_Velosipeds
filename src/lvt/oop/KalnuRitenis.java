@@ -1,36 +1,31 @@
 package lvt.oop;
 
-public class KalnuRitenis extends Velosipeds {
-
+public class KalnuRitenis extends Velosipeds{
+	private int iestatAtrums;
+	private boolean atsperes;
 	
-		//atributi
-		private int iestatAtrums;
-		private boolean atsperes;
-		
-		//Konstruktors
-		public KalnuRitenis(int ritenaD, int sedeklaPoz, double cena, String razotajs, int iestatAtrums, boolean atsperes) {
-			super(ritenaD, sedeklaPoz, cena, razotajs);
-			this.iestatAtrums = iestatAtrums;
-			this.atsperes = atsperes;
-		}
-		
-		//Metodes
-		public int getIestatAtr() {
-			return iestatAtrums;
-		}
-
-		public void parslegtAtr(int atr) {
-			iestatAtrums = atr;
-		}
-
-		public String izvadit() {
-			return "Riteņa ražotājs: "+getRazotajs()+
-					"\nRiteņa cena: "+getCena()+" EUR"+
-					"\nRiteņa lielums collās: "+getRitenaD()+
-					"\nIestatītais sedekļa augstums: "+getSedeklaPoz()
-					+"\nKustības ātrums: "+kustibasAtr()+"m\s"+
-					"\nIestatītais ātrums: "+getIestatAtr()+
-					"\nPapiluds amortizācija: "+((atsperes)? "Ir" : "Nav");
-		}
-
+	//konstruktors
+	public KalnuRitenis(int iestatAtrums, boolean atsperes,
+			int ritenaD, int sedeklaPoz, double cena, String razotajs) {
+		super(ritenaD, sedeklaPoz, cena, razotajs);
+		this.iestatAtrums = iestatAtrums;
+		this.atsperes = atsperes;
+	}
+	
+	//metodes
+	public int noteiktIestatAtr() {
+		return iestatAtrums;
+	}
+	public void parslegtAtr(int atr) {
+		iestatAtrums = atr;
+	}
+	public String izvadit() {
+		return "Riteņa ražotājs: "+noteiktRaz()+
+				"\nRiteņa cena: "+noteiktCenu()+
+				"\nRiteņa leilums collās: "+noteiktRitenaD()+
+				"\nIEstatītais sēdekļa garums: "+noteiktSedeklaPoz()+
+				"\nKustības ātrums: "+noteiktAtr()+"m/s"+
+				"\nIestatītais ātrums: "+noteiktIestatAtr()+
+				"\nPapildus amortizācija: "+((atsperes)? "Ir": "Nav");
+	}
 }

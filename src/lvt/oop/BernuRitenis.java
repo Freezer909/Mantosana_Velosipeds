@@ -11,40 +11,37 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JOptionPane;
 
-public class BernuRitenis extends Velosipeds{
-	//Atributi
-	private boolean paligriteni, zvanins;
-	
-
-	public BernuRitenis(boolean paligriteni, boolean zvanins, int ritenaD, int sedeklaPoz, double cena, String razotajs) {
+public class Bernuritenis extends Velosipeds{
+	//atributi
+	private boolean paligriten,zvanins;
+	//konstruktors
+	public Bernuritenis(boolean paligriten, boolean zvanins, int ritenaD, int sedeklaPoz, String razotajs,
+			double cena) {
 		super(ritenaD, sedeklaPoz, cena, razotajs);
-		this.paligriteni = paligriteni;
+		this.paligriten = paligriten;
 		this.zvanins = zvanins;
 	}
-
-	//Metodes
-	public void darbArPaligrit(boolean darbiba) {
-		if(darbiba && paligriteni == false) {
-			paligriteni = true;
-			JOptionPane.showMessageDialog(null, "Palīgriteņi tika piestiprināti!", "Paziņojums", JOptionPane.INFORMATION_MESSAGE);
-		}else if (darbiba == false && paligriteni) {
-			paligriteni = false;
-			JOptionPane.showMessageDialog(null, "Palīgriteņi tika noņemti!", "Paziņojums", JOptionPane.INFORMATION_MESSAGE);
-		}else {
-			JOptionPane.showMessageDialog(null, "Darbība nav iespējama!", "MONKEYYY!!", JOptionPane.WARNING_MESSAGE);
-		}
+	public void darbArPaligriteni(boolean darbiba) {
+		if(darbiba && paligriten == false) {
+			paligriten = true;
+			JOptionPane.showMessageDialog(null, "Palīgritenis uzlikts","Pazinojums",JOptionPane.INFORMATION_MESSAGE);
+	}else if(darbiba == false && paligriten ) {
+		paligriten = false;
+		JOptionPane.showMessageDialog(null, "Palīgritenis noņemts","Pazinojums",JOptionPane.INFORMATION_MESSAGE);
+	} else {
+		JOptionPane.showMessageDialog(null, "Darbibba nav ie","Bridinajums",JOptionPane.WARNING_MESSAGE);
 	}
-	
-	public void zvanitZvaninu() throws MalformedURLException, UnsupportedAudioFileException, IOException, LineUnavailableException {
-		if(zvanins) {
-			File f = new File (".//audio//"+"ring.wav");
-			AudioInputStream ais = AudioSystem.getAudioInputStream(f.toURI().toURL());
-			Clip c = AudioSystem.getClip();
-			c.open(ais);
-			c.start();
-		}else {
-			
-		}
+ }
+	public void zvanitZvaninu() throws MalformedURLException,
+		UnsupportedAudioFileException,IOException, LineUnavailableException {
+			if(zvanins) {
+				File f = new File(".//audio//"+"ring.wav");
+				AudioInputStream ais =AudioSystem.getAudioInputStream(f.toURI().toURL());
+				Clip c = AudioSystem.getClip();
+				c.open(ais);
+				c.start();
+				
+			}else
+				JOptionPane.showMessageDialog(null, "Zvaniņš nav pieejams","Bridinajums",JOptionPane.WARNING_MESSAGE);
 	}
-	
 }

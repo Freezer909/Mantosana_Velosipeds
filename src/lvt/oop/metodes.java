@@ -77,6 +77,18 @@ public static String ievade;
 		 JFrame jf = new JFrame();
 		 JOptionPane jop = new JOptionPane();
 		 JSlider js = bidjosla(jop, 10);
+		 jop.setMessage(new Object[] {"Kādu augstumu gribi sēdekli", js});
+		 jop.setMessageType(JOptionPane.QUESTION_MESSAGE);
+		 jop.setOptionType(JOptionPane.OK_CANCEL_OPTION);
+		 JDialog jd = jop.createDialog(jf, "Sēdekļa iestatīšana");
+		 jd.setVisible(true);
+		 return (int)jop.getInputValue();
+	 }
+	 
+	 static int iestatitAtrumu() {
+		 JFrame jf = new JFrame();
+		 JOptionPane jop = new JOptionPane();
+		 JSlider js = bidjosla(jop, 36);
 		 jop.setMessage(new Object[] {"Kuru ātrumu iestatīt", js});
 		 jop.setMessageType(JOptionPane.QUESTION_MESSAGE);
 		 jop.setOptionType(JOptionPane.OK_CANCEL_OPTION);
