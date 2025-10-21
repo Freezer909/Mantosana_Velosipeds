@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
 
 public class RitenBraucejs {
 	
@@ -83,6 +86,23 @@ public class RitenBraucejs {
 						}else {
 							JOptionPane.showMessageDialog(null, "Sarakstā nav neviens ritenis!", "Brīdinājums", JOptionPane.WARNING_MESSAGE);
 						}
+						
+						break;
+						
+					case 2:
+						String str = "";
+						for(int i=0; i<riteni.size(); i++) {
+							str += ((Velosipeds)riteni.get(i)).izvadit()+"\n+++++++++++++++++++++++++++++++++++++++++++++\n";
+						}
+							
+						
+						JTextArea ta = new JTextArea(str, 10, 40);
+						ta.setEditable(false);
+						JScrollPane sp = new JScrollPane(ta);
+						sp.setVerticalScrollBarPolicy(
+								ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+						JOptionPane.showMessageDialog(ta, sp, "Visi studenti",
+								JOptionPane.PLAIN_MESSAGE);
 						
 						
 						break;
