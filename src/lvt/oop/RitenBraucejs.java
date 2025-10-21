@@ -90,11 +90,15 @@ public class RitenBraucejs {
 						break;
 						
 					case 2:
-						String str = "";
+						
+						if(riteni.size() > 0) {
+						String str = "Riteņu skaits: "+riteni.size()+"\n+++++++++++++++++++++++++++++++++++++++++++++\n";
+						
+						
 						for(int i=0; i<riteni.size(); i++) {
 							str += ((Velosipeds)riteni.get(i)).izvadit()+"\n+++++++++++++++++++++++++++++++++++++++++++++\n";
 						}
-							
+						
 						
 						JTextArea ta = new JTextArea(str, 10, 40);
 						ta.setEditable(false);
@@ -104,6 +108,9 @@ public class RitenBraucejs {
 						JOptionPane.showMessageDialog(ta, sp, "Visi studenti",
 								JOptionPane.PLAIN_MESSAGE);
 						
+						}else {
+							JOptionPane.showMessageDialog(null, "Sarakstā nav neviens ritenis!", "Brīdinājums", JOptionPane.WARNING_MESSAGE);
+						}
 						
 						break;
 						
